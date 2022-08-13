@@ -18,9 +18,9 @@ export class SchoolsController {
     return this.schoolsService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.schoolsService.findOne(+id);
+  @Get(':_id')
+  findOne(@Param('_id') id: string) {
+    return this.schoolsService.findOne(id);
   }
 
   @Put(':_id')

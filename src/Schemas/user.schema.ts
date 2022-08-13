@@ -10,16 +10,19 @@ export class User {
     _id: mongoose.Types.ObjectId;
 
     @Prop()
-    userName: string;
+    name: string;
 
     @Prop()
-    userSurname: string;
+    surname: string;
 
     @Prop()
-    userRole: string;
+    roleID: string;
 
     @Prop()
-    UserSchool: string;
+    email: string;
+
+    @Prop()
+    password: string;
 
 }
 

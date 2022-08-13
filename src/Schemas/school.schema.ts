@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose, { Document } from 'mongoose';
+import { nanoid } from 'nanoid';
 
 export type SchoolDocument = School & Document;
 
@@ -7,7 +8,7 @@ export type SchoolDocument = School & Document;
 
 export class School {
     // @Prop()
-    _id: mongoose.Types.ObjectId;
+    _id: mongoose.Schema.Types.ObjectId;
 
     @Prop()
     schoolName: string;

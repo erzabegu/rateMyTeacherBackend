@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Professor, ProfessorDocument } from 'src/schemas/professor.schema';
+import { ProfessorDocument } from 'src/Schemas/professors.schema';
 import { CreateProfessorDto } from './dto/create-professor.dto';
 import { UpdateProfessorDto } from './dto/update-professor.dto';
+import { Professor } from './entities/professor.entity';
 
 @Injectable()
 export class ProfessorsService {
@@ -23,7 +24,7 @@ export class ProfessorsService {
   }
 
   update(id: string, updateProfessorDto: UpdateProfessorDto) {
-    return this.professorModel.updateOne({ id }, { $set: { ...updateProfessorDto } })
+    return this.professorModel.findByIdAndUpdate(id, updateProfessorDto).exec();
   }
 
   remove(id: string) {

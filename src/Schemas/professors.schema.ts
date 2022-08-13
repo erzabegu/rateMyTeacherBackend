@@ -1,15 +1,26 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 
 export type ProfessorDocument = professor & Document;
 
 @Schema({ collection: 'professor' })
 export class professor {
+    // @Prop()
+    _id: mongoose.Types.ObjectId;
     @Prop()
     professorName: string;
 
     @Prop()
     professorSurname: string;
+
+    @Prop()
+    schoolName: string;
+
+    @Prop()
+    schoolId: string;
+
+    @Prop()
+    departments: Array<any>;
 
 }
 

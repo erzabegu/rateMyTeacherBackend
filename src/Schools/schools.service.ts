@@ -13,19 +13,19 @@ export class SchoolsService {
     return new this.schoolModel(createSchoolDto).save();
   }
 
-  async findAll() {
+  findAll() {
     return this.schoolModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} school`;
+  async findOne(id: string) {
+    return this.schoolModel.findById(id).exec();
   }
 
-  update(id: string, updateSchoolDto: UpdateSchoolDto) {
-    return this.schoolModel.updateOne({ id }, { $set: { ...updateSchoolDto } })
+  async update(id: string, updateSchoolDto: UpdateSchoolDto) {
+    return this.schoolModel.findByIdAndUpdate(id, updateSchoolDto).exec();
   }
 
-  remove(id: string) {
+  async remove(id: string) {
     return this.schoolModel.deleteOne({ id });
   }
 }

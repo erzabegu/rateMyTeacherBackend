@@ -18,15 +18,15 @@ export class DepartmentsService {
     return this.departmentModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} department`;
+  async findOne(id: string) {
+    return this.departmentModel.findById(id).exec();
   }
 
-  update(id: number, updateDepartmentDto: UpdateDepartmentDto) {
-    return `This action updates a #${id} department`;
+  async update(id: string, updateDepartmentDto: UpdateDepartmentDto) {
+    return this.departmentModel.findByIdAndUpdate(id, updateDepartmentDto).exec();
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} department`;
+  async remove(id: string) {
+    return this.departmentModel.deleteOne({ id });
   }
 }
