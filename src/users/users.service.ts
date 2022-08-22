@@ -17,8 +17,9 @@ export class UsersService {
     return this.userModel.find();
   }
 
-  async findOne(id: string) {
-    return this.userModel.findById(id).exec();
+
+  async findOne(condition: any) {
+    return this.userModel.find(condition);
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {

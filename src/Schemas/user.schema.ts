@@ -7,22 +7,25 @@ export type UserDocument = User & Document;
 
 export class User {
     // @Prop()
-    _id: mongoose.Types.ObjectId;
+    // _id: mongoose.Types.ObjectId;
 
-    @Prop()
-    name: string;
+    @Prop({ unique: true, type: String })
+    username: string;
 
-    @Prop()
-    surname: string;
-
-    @Prop()
-    roleID: string;
-
-    @Prop()
+    @Prop({ unique: true, type: String })
     email: string;
 
-    @Prop()
+    @Prop({ type: String })
     password: string;
+
+    @Prop({ type: String })
+    firstName: string;
+
+    @Prop({ type: String })
+    lastName: string;
+
+    // @Prop({ type: String })
+    // userRoleName: string;
 
 }
 

@@ -1,1 +1,3 @@
-export class Professor {}
+export class Professor {
+    professorName: string;
+}

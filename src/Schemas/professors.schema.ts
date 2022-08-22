@@ -6,7 +6,7 @@ export type ProfessorDocument = professor & Document;
 @Schema({ collection: 'professor' })
 export class professor {
     // @Prop()
-    _id: mongoose.Types.ObjectId;
+    _id: mongoose.Types.ObjectId | string;
     @Prop()
     professorName: string;
 

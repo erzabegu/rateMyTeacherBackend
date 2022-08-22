@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Put, Delete } from '@nestjs/
 import { ProfessorsService } from './professors.service';
 import { CreateProfessorDto } from './dto/create-professor.dto';
 import { UpdateProfessorDto } from './dto/update-professor.dto';
+import { Professor } from './entities/professor.entity';
 
 @Controller('professors')
 export class ProfessorsController {
@@ -20,6 +21,11 @@ export class ProfessorsController {
   @Get(':_id')
   findOne(@Param('_id') id: string) {
     return this.professorsService.findOne(id);
+  }
+
+  @Get('/byName/:professorName')
+  findByName(@Param('professorName') professorName: string) {
+    return this.professorsService.findByName(professorName);
   }
 
   @Put(':_id')
