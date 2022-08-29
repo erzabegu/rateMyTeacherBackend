@@ -4,13 +4,14 @@ import { Model } from 'mongoose';
 import { User } from 'src/schemas/user.schema';
 import * as bcrypt from 'bcrypt';
 
-interface user {
-  username: string;
-  email: string;
-  password: string;
-  firstName: string;
-  lastName: string;
-}
+// interface user {
+//   username: string;
+//   email: string;
+//   password: string;
+//   firstName: string;
+//   lastName: string;
+//   userRoleName: string;
+// }
 
 @Injectable()
 export class SignupService {
@@ -22,16 +23,14 @@ export class SignupService {
       password: await bcrypt.hash(user.password, 10),
       firstName: user.firstName,
       lastName: user.lastName,
+      userRoleName: user.userRoleName,
     })
     try {
       await newUser.save();
     }
     catch (error) {
-      if (error.message.includes('username')) {
-        throw new HttpException("username has been taken", 404)
-      }
       if (error.message.includes('email')) {
-        throw new HttpException("email has been taken", 404)
+        throw new HttpException("Email has been taken", 404)
       }
     }
   }

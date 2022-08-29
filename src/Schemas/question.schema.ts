@@ -11,6 +11,9 @@ export class Question {
 
     @Prop()
     question: string;
+
+    @Prop()
+    questionType: string;
 }
 
 export const QuestionSchema = SchemaFactory.createForClass(Question);

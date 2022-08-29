@@ -29,4 +29,5 @@ export class UsersService {
   async remove(id: string) {
     return this.userModel.findOneAndDelete({ id })
   }
+
 }

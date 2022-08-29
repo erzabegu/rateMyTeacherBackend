@@ -22,6 +22,9 @@ export class professor {
     @Prop()
     departments: Array<any>;
 
+    @Prop({ required: false })
+    ratings: Array<any>;
+
 }
 
 export const ProfessorSchema = SchemaFactory.createForClass(professor);

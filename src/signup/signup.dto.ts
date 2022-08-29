@@ -4,4 +4,5 @@ export class SignupDto {
     readonly password: string;
     readonly firstName: string;
     readonly lastName: string;
+    readonly userRoleName: string;
 }

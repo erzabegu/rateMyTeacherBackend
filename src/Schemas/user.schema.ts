@@ -9,7 +9,7 @@ export class User {
     // @Prop()
     // _id: mongoose.Types.ObjectId;
 
-    @Prop({ unique: true, type: String })
+    @Prop({ type: String })
     username: string;
 
     @Prop({ unique: true, type: String })
@@ -24,8 +24,8 @@ export class User {
     @Prop({ type: String })
     lastName: string;
 
-    // @Prop({ type: String })
-    // userRoleName: string;
+    @Prop({ type: String })
+    userRoleName: string;
 
 }
 
