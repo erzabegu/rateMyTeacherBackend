@@ -1,11 +1,20 @@
-import { Controller, Get, Post, Body, Patch, Param, Put, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Put,
+  Delete,
+} from '@nestjs/common';
 import { ProfessorsService } from './professors.service';
 import { CreateProfessorDto } from './dto/create-professor.dto';
 import { UpdateProfessorDto } from './dto/update-professor.dto';
 
 @Controller('professors')
 export class ProfessorsController {
-  constructor(private readonly professorsService: ProfessorsService) { }
+  constructor(private readonly professorsService: ProfessorsService) {}
 
   @Post()
   create(@Body() createProfessorDto: CreateProfessorDto) {
@@ -22,7 +31,7 @@ export class ProfessorsController {
     return this.professorsService.findOne(id);
   }
 
-  @Get("results/:_id")
+  @Get('results/:_id')
   showResults(@Param('_id') id: string) {
     return this.professorsService.showResults(id);
   }
@@ -32,8 +41,16 @@ export class ProfessorsController {
     return this.professorsService.findByName(professorName);
   }
 
+  @Get('/bySchoolName/:professorSchool')
+  getBySchoolName(@Param('professorSchool') professorSchool) {
+    return this.professorsService.getBySchoolName(professorSchool);
+  }
+
   @Put(':_id')
-  update(@Param('_id') id: string, @Body() updateProfessorDto: UpdateProfessorDto) {
+  update(
+    @Param('_id') id: string,
+    @Body() updateProfessorDto: UpdateProfessorDto,
+  ) {
     return this.professorsService.update(id, updateProfessorDto);
   }
 

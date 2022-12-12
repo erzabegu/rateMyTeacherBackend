@@ -35,7 +35,6 @@ export class UsersController {
     @Body('email') email: string,
     @Body('password') password: string) {
     const user = await this.usersService.findOne({ email });
-    console.log(user[0], 'user')
     if (!user[0]) {
       throw new BadRequestException('invalid credentials');
     }
@@ -73,7 +72,6 @@ export class UsersController {
   async reset(@Body('email') email: string,
     @Body('password') password: string) {
     const user = await this.usersService.findOne({ email });
-    console.log(user.length, 'user')
     if (user.length === 0) {
       throw new NotFoundException("User not found")
     }

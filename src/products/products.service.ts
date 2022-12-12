@@ -15,7 +15,6 @@ export class ProductService {
         const newProduct = new this.productModel({ title, desc, price });
         await newProduct.save();
         const result = this.products.push(newProduct)
-        console.log(result)
         return "prodId"
     }
 
